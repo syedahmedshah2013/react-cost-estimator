@@ -14,8 +14,8 @@ class ListPrices extends Component {
         await this.props.FetchPrices();
         console.log(this.props.prices);
         
-        if(this.props.prices && this.props.prices.items.length > 0) {
-            this.setState({ pricesStatus: 200, prices: this.props.prices.items })
+        if(this.props.prices && this.props.prices.cost.items.length > 0) {
+            this.setState({ pricesStatus: 200, prices: this.props.prices.cost.items })
         } else {
             this.setState({ pricesStatus: 500 });
         }

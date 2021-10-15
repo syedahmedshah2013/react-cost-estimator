@@ -26,17 +26,22 @@ class EstimatorForm extends Component {
 
     onSubmit = async ({ item_name, item_price }) => {
         let prices = [];
-        prices.push({ 
+        let id = Math.ceil((Math.random * 100) * 1000);
+        let tax = (item_price * 16.00) / 100;
+        let gross = item_price + tax;
+
+        prices.push({
+            id,
             name: item_name,
             net: item_price,
-            tax: this.state.tax,
-            gross: this.state.gross 
+            tax: tax,
+            gross: gross 
         });
 
         await this.props.AddPrices(prices);
 
         if(this.props.prices.status === 200) {
-            this.setState({ priceStatus: 200 });
+            this.setState({ priceStatus: 200, tax, gross });
         } else {
             this.setState({ priceStatus: this.props.prices.status });
         }
@@ -46,13 +51,13 @@ class EstimatorForm extends Component {
         if(this.state.priceStatus === 200) {
             return (
                 <div class="alert alert-primary" role="alert">
-                    
+                    Voila! Successfully Added The Cost.
                 </div>
             )
-        } else {
+        } else if(this.state.priceStatus === 500) {
             return (
                 <div class="alert alert-danger" role="alert">
-                    
+                    Oops! Something went wrong while adding the cost.
                 </div>
             )
         }
@@ -88,7 +93,7 @@ class EstimatorForm extends Component {
                     <div className="col-md-8"></div>
                     <div className="col-md-2">
                         <h5>Tax</h5>
-                        <p>{(this.state.tax)}%</p>
+                        <p>{(this.state.tax)} | 16%</p>
                     </div>
                     <div className="col-md-2">
                         <h5>Gross</h5>
