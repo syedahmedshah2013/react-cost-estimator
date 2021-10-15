@@ -12,7 +12,7 @@ export const AddPrices = formValues => async (dispatch, getState) => {
                 status: 200,
                 type: 'success',
                 msg: 'Successfully added the prices.',
-                prices 
+                prices: { items: prices } 
             }
         });
     } catch(err) {
@@ -28,9 +28,9 @@ export const AddPrices = formValues => async (dispatch, getState) => {
     }
 };
 
-export const ListPrices = formValues => async (dispatch, getState) => {
+export const FetchPrices = formValues => async (dispatch, getState) => {
     try {
-        const response = await gateway.post('/prod', formValues);
+        const response = await gateway.get('/prod', formValues);
 
         dispatch({
             type: FETCH_PRICES,

@@ -26,7 +26,12 @@ class EstimatorForm extends Component {
 
     onSubmit = async ({ item_name, item_price }) => {
         let prices = [];
-        prices.push({ item_name, item_price });
+        prices.push({ 
+            name: item_name,
+            net: item_price,
+            tax: this.state.tax,
+            gross: this.state.gross 
+        });
 
         await this.props.AddPrices(prices);
 
