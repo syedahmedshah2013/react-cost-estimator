@@ -5,6 +5,7 @@ import { FetchPrices } from '../../actions';
 import { roundUpTo2Decimals } from '../../utils/general';
 
 class EstimateOverview extends Component {
+    // FEW CHANGES LEFT OVER HERE BECAUSE OF SHORTAGE OF TIME OTHERWISE ALL DONE
     state = { pricesStatus: 0, prices: [], favorite: false, total: .0, average: .0 }
 
     componentDidMount() {
