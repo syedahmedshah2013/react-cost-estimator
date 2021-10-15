@@ -1,5 +1,5 @@
 import gateway from '../api';
-import { ADD_PRICES, FETCH_ALL_PRICES, FETCH_PRICES } from './types';
+import { ADD_PRICES, DELETE_PRICE, FETCH_ALL_PRICES, FETCH_PRICES } from './types';
 
 export const AddPrices = formValues => async (dispatch, getState) => {
     try {
@@ -23,6 +23,33 @@ export const AddPrices = formValues => async (dispatch, getState) => {
                 type: 'error', 
                 msg: 'We are sorry, unable to Add the prices at the moment. Please try again later.', 
                 cost: {} 
+            }
+        });
+    }
+};
+
+export const DeletePrice = formValues => async (dispatch, getState) => {
+    try {
+        // SIMULATION OF ADD / CREATE PRICING API
+        const index = formValues;
+
+        dispatch({
+            type: DELETE_PRICE,
+            payload: { 
+                status: 200,
+                type: 'success',
+                msg: 'Successfully deleted the price.',
+                cost: index
+            }
+        });
+    } catch(err) {
+        dispatch({
+            type: DELETE_PRICE,
+            payload: { 
+                status: 500, 
+                type: 'error', 
+                msg: 'We are sorry, unable to delete the price at the moment. Please try again later.', 
+                cost: null 
             }
         });
     }
