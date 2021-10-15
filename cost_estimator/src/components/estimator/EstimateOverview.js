@@ -15,7 +15,7 @@ class EstimateOverview extends Component {
         await this.props.FetchPrices();
         console.log(">>>>>>", this.props.prices);
         
-        if(this.props.prices && this.props.prices.cost && this.props.prices.cost.items && this.props.prices.cost.items.length > 0) {
+        if(this.props.prices && this.props.prices.cost.items.length > 0) {
             this.calculateTotalAvg(this.props.prices);
         } else {
             this.setState({ pricesStatus: 500 });
@@ -23,6 +23,7 @@ class EstimateOverview extends Component {
     }
 
     calculateTotalAvg = (prices) => {
+        alert('here')
         let total = 0;
 
         prices.cost.items.map((item) => {
