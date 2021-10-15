@@ -23,7 +23,6 @@ class EstimateOverview extends Component {
     }
 
     calculateTotalAvg = (prices) => {
-        alert('here')
         let total = 0;
 
         prices.cost.items.map((item) => {
