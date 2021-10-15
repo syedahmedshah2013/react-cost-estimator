@@ -1,1 +1,2 @@
-export const COST_ESTIMATOR = 'COST_ESTIMATOR';
+export const ADD_PRICES = 'ADD_PRICES';
+export const FETCH_PRICES = 'FETCH_PRICES';
