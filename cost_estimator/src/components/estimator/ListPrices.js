@@ -60,7 +60,7 @@ class ListPrices extends Component {
                         {this.state.prices.map(({ name, net, tax }, index) => {
                             let gross = parseFloat(net) + parseFloat(tax);
                             return (
-                                <Fragment>
+                                <Fragment key={index}>
                                     <tr>
                                         <th scope="row">{name}</th>
                                         <td>{net} €</td>
@@ -95,7 +95,7 @@ class ListPrices extends Component {
                     {this.state.favorites.map(({ name, net, tax }, index) => {
                         let gross = parseFloat(net) + parseFloat(tax);
                         return (
-                            <Fragment>
+                            <Fragment key={index}>
                                 <tr>
                                     <th scope="row">{name}</th>
                                     <td>{net} €</td>

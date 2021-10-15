@@ -11,30 +11,14 @@ class EstimateOverview extends Component {
         this.fetchItemPricesOnLoad();
     }
 
-    componentDidUpdate() {
-        this.fetchItemPrices();
-    }
-
     fetchItemPricesOnLoad = async () => {
         await this.props.FetchPrices();
-        console.log(this.props.prices);
+        console.log(">>>>>>", this.props.prices);
         
         if(this.props.prices && this.props.prices.cost && this.props.prices.cost.items && this.props.prices.cost.items.length > 0) {
             this.calculateTotalAvg(this.props.prices);
-            this.setState({ pricesStatus: 200, prices: this.props.prices.cost.items })
         } else {
             this.setState({ pricesStatus: 500 });
-        }
-    }
-
-    fetchItemPrices = () => {
-        console.log(this.props.prices);
-        if(this.state.prices.length < this.props.prices.length) {
-            if(this.props.prices && this.props.prices.cost && this.props.prices.cost.items.length > 0) {
-                this.calculateTotalAvg(this.props.prices);
-            } else {
-                this.setState({ pricesStatus: 500 });
-            }
         }
     }
 
