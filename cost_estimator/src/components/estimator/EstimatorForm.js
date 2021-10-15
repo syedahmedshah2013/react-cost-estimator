@@ -6,6 +6,7 @@ import { AddPrices } from '../../actions';
 import { renderInput } from '../../utils/renderForm';
 
 import numeral from 'numeral';
+import { roundUpTo2Decimals } from '../../utils/general';
 
 class EstimatorForm extends Component {
     state = { priceStatus: 0, tax: .0, gross: .0 }
@@ -28,7 +29,7 @@ class EstimatorForm extends Component {
         let prices = [];
         let id = Math.ceil((Math.random * 100) * 1000);
         let tax = (item_price * 16.00) / 100;
-        let gross = item_price + tax;
+        let gross = parseFloat(item_price + tax);
 
         prices.push({
             id,
@@ -93,11 +94,11 @@ class EstimatorForm extends Component {
                     <div className="col-md-8"></div>
                     <div className="col-md-2">
                         <h5>Tax</h5>
-                        <p>{(this.state.tax)} | 16%</p>
+                        <p>{roundUpTo2Decimals(this.state.tax)} | 16%</p>
                     </div>
                     <div className="col-md-2">
                         <h5>Gross</h5>
-                        <p>{(this.state.gross)}€</p>
+                        <p>{roundUpTo2Decimals(this.state.gross)}€</p>
                     </div>
                 </div>
                 <div className="row">
