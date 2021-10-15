@@ -8,12 +8,22 @@ export const AddPrices = formValues => async (dispatch, getState) => {
 
         dispatch({
             type: FETCH_PRICES,
-            payload: prices
+            payload: { 
+                status: 200,
+                type: 'success',
+                msg: 'Successfully added the prices.',
+                prices 
+            }
         });
     } catch(err) {
         dispatch({
             type: FETCH_PRICES,
-            payload: { status: 500, type: 'error', msg: `We're sorry as we're unable to fetch the prices at the moment. Please try again later.` }
+            payload: { 
+                status: 500, 
+                type: 'error', 
+                msg: 'We are sorry, unable to fetch the prices at the moment. Please try again later.', 
+                prices: null 
+            }
         });
     }
 };
