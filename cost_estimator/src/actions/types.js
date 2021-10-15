@@ -1,0 +1,1 @@
+export const COST_ESTIMATOR = 'COST_ESTIMATOR';
