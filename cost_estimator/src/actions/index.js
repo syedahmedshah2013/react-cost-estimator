@@ -1,5 +1,5 @@
 import gateway from '../api';
-import { ADD_PRICES, FETCH_PRICES } from './types';
+import { ADD_PRICES, FETCH_ALL_PRICES, FETCH_PRICES } from './types';
 
 export const AddPrices = formValues => async (dispatch, getState) => {
     try {
@@ -21,7 +21,7 @@ export const AddPrices = formValues => async (dispatch, getState) => {
             payload: { 
                 status: 500, 
                 type: 'error', 
-                msg: 'We are sorry, unable to fetch the prices at the moment. Please try again later.', 
+                msg: 'We are sorry, unable to Add the prices at the moment. Please try again later.', 
                 cost: {} 
             }
         });
