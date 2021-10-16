@@ -8,11 +8,11 @@ Implementation details:
   * added a toggle button to just display the starred items
 
 ## IMPROVEMENTS
-This code contains the fixes of the following that was not avaliable in the previous repo.
-    * Updated the glitch of input validations.
-    * Updated the [Overview component] of Cost Estimation when state updates in the application it updates automatically refelecting the current state in client.
-    * Added the Unit test scripts for App & Estimator List Prices components in the tests folder.
-    * Updated the Toggle Button with functionality to change the text accordingly for current active state. i.e Show Favorites / Show All Costs.
+This code contains the fixes of the following that was not avaliable in the previous repo:
+  * Updated the glitch of input validations.
+  * Updated the [Overview component] of Cost Estimation when state updates in the application it updates automatically refelecting the current state in client.
+  * Added the Unit test scripts for App & Estimator List Prices components in the tests folder.
+  * Updated the Toggle Button with functionality to change the text accordingly for current active state. i.e Show Favorites / Show All Costs.
 
 ## Available Scripts
 
