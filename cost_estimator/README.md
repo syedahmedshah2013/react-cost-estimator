@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# COST ESTIMATOR WITH REACT / ENZYME / JEST / REACT REDUX
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Implementation details:
+  * parsed the API response and displayed the results
+  * added a form which makes it possible to add new items including an automatic calculation of the gross amount (feel free to use the currency you want)
+  * built a overview box which represents the current state in the client
+  * added a possibility for starring and deleting items
+  * added a toggle button to just display the starred items
+
+## IMPROVEMENTS
+This code contains the fixes of the following that was not avaliable in the previous repo.
+    * Updated the glitch of input validations.
+    * Updated the [Overview component] of Cost Estimation when state updates in the application it updates automatically refelecting the current state in client.
+    * Added the Unit test scripts for App & Estimator List Prices components in the tests folder.
+    * Updated the Toggle Button with functionality to change the text accordingly for current active state. i.e Show Favorites / Show All Costs.
 
 ## Available Scripts
 
