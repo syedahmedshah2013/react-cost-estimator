@@ -9,7 +9,8 @@ class ListPrices extends Component {
         prices: [],
         favorites: [],
         deletedStatus: 0,
-        showFavorites: false
+        showFavorites: false,
+        toggleText: 'Show Favorites'
     }
 
     componentDidMount() {
@@ -120,9 +121,9 @@ class ListPrices extends Component {
 
     toggleFavs = () => {
         if(!this.state.showFavorites) {
-            this.setState({ showFavorites: true });
+            this.setState({ showFavorites: true, toggleText: 'Show All Costs' });
         } else {
-            this.setState({ showFavorites: false });
+            this.setState({ showFavorites: false, toggleText: 'Show Favorites' });
         }
     }
 
@@ -134,7 +135,7 @@ class ListPrices extends Component {
                         <button 
                             className="btn btn-sm btn-success"
                             onClick={e => this.toggleFavs() }
-                        >Show Favorites</button>
+                        >{this.state.toggleText}</button>
                     </div>
                 </div>
                 <table className="table">

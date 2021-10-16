@@ -6,7 +6,7 @@ import { roundUpTo2Decimals } from '../../utils/general';
 
 class EstimateOverview extends Component {
     // FEW CHANGES LEFT OVER HERE BECAUSE OF SHORTAGE OF TIME OTHERWISE ALL DONE
-    state = { pricesStatus: 0, prices: [], favorite: false, total: .0, average: .0 }
+    state = { pricesStatus: 0 }
 
     componentDidMount() {
         this.fetchItemPricesOnLoad();
@@ -14,30 +14,49 @@ class EstimateOverview extends Component {
 
     fetchItemPricesOnLoad = async () => {
         await this.props.FetchPrices();
-        console.log(">>>>>>", this.props.prices);
         
         if(this.props.prices && this.props.prices.cost.items.length > 0) {
-            this.calculateTotalAvg(this.props.prices);
+            this.setState({ pricesStatus: 200 });
         } else {
             this.setState({ pricesStatus: 500 });
         }
     }
 
-    calculateTotalAvg = (prices) => {
-        let total = 0;
+    renderOverview = () => {
+        if(this.state.pricesStatus === 200) {
+            let total = 0;
+            let average = 0;
+            if(this.props.prices && this.props.prices.cost.items.length > 0) {
+                let items = this.props.prices.cost.items;
+                items.map((item) => {
+                    total += parseFloat(item.net);
+                });
+                average = total / items.length;
 
-        prices.cost.items.map((item) => {
-            total += parseFloat(item.net);
-        });
-
-        let average = total / prices.cost.items.length;
-
-        this.setState({ 
-            pricesStatus: 200,
-            prices: prices.cost.items,
-            total,
-            average 
-        });
+                return (
+                    <Fragment>
+                        <div className="row">
+                            <div className="col-md-4">Total Sum</div>
+                            <div className="col-md-4">{roundUpTo2Decimals(total)} €</div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-4">Average</div>
+                            <div className="col-md-4">{roundUpTo2Decimals(average)} €</div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-4">Total Items</div>
+                            <div className="col-md-4">{items.length }</div>
+                        </div>
+                    </Fragment>
+                );
+            }
+        } else {
+            return (
+                <Fragment>
+                    <p>Oops! Unable to find relevant details</p>
+                </Fragment>
+            )
+        }
     }
 
     render() {
@@ -46,18 +65,7 @@ class EstimateOverview extends Component {
                 <div class="card bg-light">
                     <div class="card-body">
                         <h5 class="card-title">Overview</h5>
-                        <div className="row">
-                            <div className="col-md-4">Total Sum</div>
-                            <div className="col-md-4">{roundUpTo2Decimals(this.state.total)} €</div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-4">Average</div>
-                            <div className="col-md-4">{roundUpTo2Decimals(this.state.average)} €</div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-4">Total Items</div>
-                            <div className="col-md-4">{ this.state.prices.length }</div>
-                        </div>
+                        {this.renderOverview()}
                     </div>
                 </div>
             </Fragment>

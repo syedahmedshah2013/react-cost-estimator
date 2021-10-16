@@ -14,11 +14,11 @@ class EstimatorForm extends Component {
     validate = (formValues) => {
         let errors = {};
     
-        if(formValues.item_name === '') {
+        if(!formValues.item_name) {
             errors.item_name = 'Please enter Item name';
         }
     
-        if(formValues.item_price === 0) {
+        if(!formValues.item_price) {
             errors.item_price = 'Please enter a Item price greater than Zero for estimation.';
         }
     
@@ -29,7 +29,7 @@ class EstimatorForm extends Component {
         let prices = [];
         let id = Math.ceil((Math.random * 100) * 1000);
         let tax = (item_price * 16.00) / 100;
-        let gross = parseFloat(item_price + tax);
+        let gross = parseFloat(item_price) + parseFloat(tax);
 
         prices.push({
             id,
@@ -71,10 +71,9 @@ class EstimatorForm extends Component {
                     <div className="col-md-12">
                         <Field
                             type="text"
-                            required
                             name="item_name"
                             label="Name*"
-                            component={renderInput}
+                            render={renderInput}
                             placeholder="Item Name" />
                     </div>
                 </div>
@@ -82,12 +81,10 @@ class EstimatorForm extends Component {
                     <div className="col-md-12">
                         <Field
                             type="number"
-                            min="0"
-                            required
                             name="item_price"
                             label="Net*"
-                            component={renderInput}
-                            placeholder="Item Name" />
+                            render={renderInput}
+                            placeholder="Item Price" />
                     </div>
                 </div>
                 <div className="row">
@@ -98,7 +95,7 @@ class EstimatorForm extends Component {
                     </div>
                     <div className="col-md-2">
                         <h5>Gross</h5>
-                        <p>{roundUpTo2Decimals(this.state.gross)}€</p>
+                        <p>{roundUpTo2Decimals(this.state.gross)} €</p>
                     </div>
                 </div>
                 <div className="row">

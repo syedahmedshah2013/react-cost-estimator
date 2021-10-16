@@ -8,9 +8,9 @@ let renderError = ({error, touched}) => {
     }
 }
 
-export let renderInput = ({ input, label, meta }) => {
+export let renderInput = ({ input, meta, label }) => {
     let className = meta.touched && meta.error ? 'form-control is-invalid' : 'form-control';
-    
+    console.log('>>>>>>',meta)
     return (
         <div className="mb-3">
             <label className="form-label">{label}</label>
