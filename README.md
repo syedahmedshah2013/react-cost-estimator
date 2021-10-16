@@ -1,46 +1,82 @@
-### Objective
+# COST ESTIMATOR WITH REACT / ENZYME / JEST / REACT REDUX
 
-Your assignment is to implement a controlling dashboard using HTML, CSS and Javascript (React).
+Implementation details:
+  * parsed the API response and displayed the results
+  * added a form which makes it possible to add new items including an automatic calculation of the gross amount (feel free to use the currency you want)
+  * built a overview box which represents the current state in the client
+  * added a possibility for starring and deleting items
+  * added a toggle button to just display the starred items
 
-### Brief
+## IMPROVEMENTS
+This code contains the fixes of the following that was not avaliable in the previous repo.
+    * Updated the glitch of input validations.
+    * Updated the [Overview component] of Cost Estimation when state updates in the application it updates automatically refelecting the current state in client.
+    * Added the Unit test scripts for App & Estimator List Prices components in the tests folder.
+    * Updated the Toggle Button with functionality to change the text accordingly for current active state. i.e Show Favorites / Show All Costs.
 
-You are a member of the Alasco engineering team and you just finished a call with a customer. You talked about how the customer doesn't have an overview about current costs of a construction project. This slows down their work considerably and you want to provide a solution for this problem. You quickly scribble down some notes and after a few hours of relentless work you have a design in mind.
+## Available Scripts
 
-### Tasks
+In the project directory, you can run:
 
-* Implement the assignment using:
-  * Language: **Javascript** (optional: Typescript)
-  * Framework: **React**
-* Build out the project to the designs inside the `/wireframes` folder
-* Connect your application to the controlling API at https://dl5mns5bwg.execute-api.eu-central-1.amazonaws.com/prod (_Note: Adding new items is only done in the client for prototyping reasons by now_)
-* Implementation details:
-  * parse the API response and display the results
-  * add a form which makes it possible to add new items including an automatic calculation of the gross amount (feel free to use the currency you want)
-  * build a overview box which represents the current state in the client
-  * add a possibility for starring and deleting items
-  * add a toggle button to just display the starred items
+### `npm start`
 
-### Deliverables
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Make sure to include all source code in the repository. To make reviewing easier, include a fully built version (= running version to view in a browser) of your assignment in a folder named **public**.
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-### Evaluation Criteria
+### `npm test`
 
-* **Javascript (optional: Typescript)** best practices
-* We value good design / UI as much as clean code. Please consider this in your implementation
-* We're looking for you to produce working code, with enough room to demonstrate how to structure components in a small program
-* Show us your work through your commit history
-* Completeness: did you complete the features?
-* Correctness: does the functionality act in sensible, thought-out ways?
-* Maintainability: is it written in a clean, maintainable way?
-* Feel free to add additional libraries to implement the feature
-* The wireframes are just there to get a first impression of the solution, feel free to change stuff when you think it's necessary
-* It would be good to see at least one unit (or) integration test in your solution
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### CodeSubmit
+### `npm run build`
 
-Please organize, design, test and document your code as if it were going into production - then push your changes to the master branch. After you have pushed your code, you may submit the assignment on the assignment page.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-All the best and happy coding,
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-The Alasco Team
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
